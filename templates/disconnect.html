@@ -1,0 +1,20 @@
+{% extends "places.html" %}
+{% block detail %}
+<div class="contentlogin">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+
+        {% for message in messages %}
+            <p> <strong> {{ message }} </strong> </p>
+        {% endfor %}
+
+        {% endif %}
+    {% endwith %}
+    {% if not login_email %}
+        <h1>Bye!</h1>
+    {% else %}
+        <h1>Hello, {{ login_email }} !</h1>
+        <p>You are still logged in.</p>
+    {% endif %}
+</div>
+{% endblock %}

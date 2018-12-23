@@ -1,0 +1,24 @@
+{% extends "places.html" %}
+{% block detail %}
+<div class="container">
+  <div class="py-1">
+  {% with messages = get_flashed_messages() %}
+      {% if messages %}
+
+      {% for message in messages %}
+          <p> <strong> {{ message }} </strong> </p>
+      {% endfor %}
+
+      {% endif %}
+  {% endwith %}
+  </div>
+    <div class="py-4">
+      <h2>Last inserted showplaces</h2>
+    </div>
+    {% for i in items %}
+    <p>
+      <a class="font-lastshowplace" href="{{url_for('showShowplace', place_id=i.place.id, showplace_id=i.id, place_name=i.place.name, showplace_name=i.name)}}">{{i.name}}</a> <span class="font-placelastshowplace">(<a class="font-placelastshowplace" href="{{url_for('showShowplaces', place_id=i.place.id, showplace_id=i.id, place_name=i.place.name, showplace_name=i.name)}}">{{i.place.name}}</a>)</span>
+    </p>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "places.html" %}
+{% block detail %}
+<div class="contentlogin">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+
+        {% for message in messages %}
+            <p> <strong> {{ message }} </strong> </p>
+        {% endfor %}
+
+        {% endif %}
+    {% endwith %}
+    {% if not login_email %}
+        <h1>Your email or password is not correct !</h1>
+        <p>Try again</p>
+        <p><a class="btn btn-primary" href="{{url_for('showLogin')}}">Login</a></p>
+    {% else %}
+        <h1>Welcome, {{ login_email }} !</h1>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "places.html" %}
+{% block detail %}
+	<div class="container">
+      <div class="py-4">
+        <h2>Edit Place</h2>
+      </div>
+
+	   <form action="{{ url_for('editPlace',place_id = place.id, place_name = place.name)}}" method = "post">
+	      <div class="row">
+	         <div class="col-md-6 mb-3">
+	            <label for="inputname">Place</label>
+	            <input type="text" class="form-control" id="inputname" name="name" placeholder="{{place.name }}" value="" required>
+	            <div class="invalid-feedback">
+	               Valid first name is required.
+	            </div>
+	          </div>
+	      </div>
+
+	      <button class="btn btn-primary btn-default" type="submit">Edit</button>
+	   </form>
+		<div class="cancel-edit"><a href="{{url_for('applicationMain')}}">Abbrechen</a></div>
+	</div>
+{% endblock %}

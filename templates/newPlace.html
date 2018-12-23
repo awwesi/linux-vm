@@ -1,0 +1,23 @@
+{% extends "places.html" %}
+{% block detail %}
+	<div class="container">
+    <div class="py-4">
+      <h2>New Place</h2>
+    </div>
+
+	<form action="/catalog/place/new/" method = "post">
+	  <div class="row">
+	    <div class="col-md-6 mb-3">
+	      <label for="name">Place</label>
+	      <input type="text" class="form-control" name="name" placeholder="" value="" required>
+	      <div class="invalid-feedback">
+	        Valid first name is required.
+	      </div>
+	    </div>
+	  </div>
+
+	  <button class="btn btn-primary btn-default" type="submit">Create</button>
+	</form>
+  <div class="cancel-edit"><a href="{{url_for('applicationMain')}}">Abbrechen</a></div>
+ </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "places.html" %}
+{% block detail %}
+<div class="container">
+  <div class="py-1">
+  {% with messages = get_flashed_messages() %}
+      {% if messages %}
+
+      {% for message in messages %}
+          <p> <strong> {{ message }} </strong> </p>
+      {% endfor %}
+
+      {% endif %}
+  {% endwith %}
+  </div>
+  <div class="container-new-showplace">
+  {%if 'email' in session %}
+    <a class="font-insert" href="{{url_for('newShowplaceItem', place_id=showplace.place.id, place_name=showplace.place.name)}}">Insert new showplace</a>
+  {% endif %}
+  </div>
+    <div class="py-4">
+      <h2>{{showplace.name}}</h2>
+    </div>
+    <p>
+      <span class="font-showplaceItem">{{showplace.description}}</span>
+      {%if 'email' in session %}
+      <br />
+      <span class="font-edit">(<a href = "{{url_for('editShowplaceItem', place_id=showplace.place.id, showplace_id=showplace.id, place_name=showplace.place.name, showplace_name=showplace.name)}}">Edit showplace</a> / <a href = "{{url_for('deleteShowplaceItem', place_id=showplace.place.id, showplace_id=showplace.id, place_name=showplace.place.name, showplace_name=showplace.name)}}">Delete showplace</a>)</span>
+      {% endif %}
+    </p>
+{% endblock %}

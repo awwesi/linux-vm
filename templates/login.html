@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Signin</title>
+    <!-- Bootstrap core CSS -->
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- Custom styles for this template -->
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/signin.css') }}">
+
+  </head>
+
+  <body class="text-center">
+    <div class="container-content">
+      <h2 class="h2 mb-3 font-weight-normal">Please sign in</h2>
+    <form class="form-signin" action="/catalog/connect" method = "post">
+	  <input hidden type ="text" name="state" value="{{STATE }}">
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+	  <div class="cancel-signin"><a href="{{url_for('applicationMain')}}">Abbrechen</a></div>
+    </form>
+  </div>
+  </body>
+</html>

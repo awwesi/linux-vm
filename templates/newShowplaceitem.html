@@ -1,0 +1,25 @@
+{% extends "places.html" %}
+{% block detail %}
+	 <div class="container">
+      <div class="py-4">
+         <h2>New Showplace for {{place.name}}</h2>
+      </div>
+
+	 <form action="#" method = "post">
+	    <div class="row">
+	      <div class="col-md-6 mb-3">
+	        <label for="name">Showplace</label>
+	        <input type="text" class="form-control" name="name" placeholder="" value="" required>
+					<label for="description">Description:</label>
+					<textarea class="form-control" maxlength="1024" rows="3" name="description" placeholder="Description of the showplace"></textarea>
+	        <div class="invalid-feedback">
+	          Valid place is required.
+	        </div>
+	      </div>
+	    </div>
+
+	    <button class="btn btn-primary btn-default" type="submit">Create</button>
+	    </form>
+			<div class="cancel-edit"><a href="{{url_for('showShowplaces', place_id = place.id, place_name = place.name)}}">Abbrechen</a></div>
+   </div>
+{% endblock %}

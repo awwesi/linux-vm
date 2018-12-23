@@ -29,6 +29,7 @@ This project is setting up and configuring a Linux Webserver
 * disable remote login for user root
 * set up firewall with SSH (port 2200), HTTP (port 80), and NTP (port 123)
 * Configuring Apache Webserver to serve the Item Catalog application as a WSGI app
+* clone Catalog App from github and configure it running on that server
 
 ### Executing program
 
